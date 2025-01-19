@@ -18,11 +18,13 @@
 }
 
 body{
-    /* display: flex;
-    justify-content: center; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     text-align: center;
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
     background: linear-gradient(#F9D423,#3CBA92);
+    height: 100vh;
 }
 
 main{
@@ -30,7 +32,7 @@ main{
     flex-direction: column;
     /* width: 393px;
     height: 852px; */
-    height: 100vh;
+    height: 90vh;
     width: 100%;
 
     padding: 1.5em 30px 10px 30px;
@@ -117,6 +119,7 @@ main{
 
 footer{
     text-align: center;
+    font-family: var(--font-ternaria);
 }
 
 @media (min-width: 900px){
