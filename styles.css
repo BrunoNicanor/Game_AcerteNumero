@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+15&family=Lexend:wght@100..900&family=Rubik+Vinyl&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Rubik+Doodle+Shadow&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+:root{
+    --font-principal:"Bungee Shade", serif;
+    --font-secundaria:"Rubik Doodle Shadow", serif;
+    --font-ternaria:"Lexend", serif;
+
+    --verde-principal:#809D3C;
+    --verde-secundaria:#4e6617;
+}
+
+body{
+    /* display: flex;
+    justify-content: center; */
+    text-align: center;
+    background-repeat: no-repeat;
+    background: linear-gradient(#F9D423,#3CBA92);
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    /* width: 393px;
+    height: 852px; */
+    height: 100vh;
+    width: 100%;
+
+    padding: 2em 30px 10px 30px;
+
+    gap: 35px;
+}
+
+.display{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.display__TextoPrincipal{
+    font-size: 48px;
+    text-align: center;
+    font-family: var(--font-principal);
+}
+
+.display__TextoSecundario{
+    font-size: 64px;
+    font-family: var(--font-secundaria);
+}
+
+.teclado{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    gap: 35px;
+}
+
+.caixaTexto{
+    height: 65px;
+    width: 100%;
+
+    color: black;
+    font-size: 60px;
+    text-align: center;
+
+    background-color: white;
+    border-radius: 20px;
+}
+
+.teclas{
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(6,1fr);
+    gap: 15px;
+}
+
+.teclas div{
+    background-color: #809D3C;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    font-size: 35px;
+    font-family: var(--font-ternaria);
+    font-weight: 300;
+
+    border-radius: 25px;
+    box-shadow: 1px 3px 8px #4e6617;
+}
+
+.teclas div:active{
+    background-color: #4e6617;
+    box-shadow: none;
+}
+
+#apagar{
+    grid-column: 1 / -2;
+}
+
+#enviar{
+    grid-column: 2 / -1;
+}
+
+#novoJogo{
+    grid-column: 1 / -1;
+}
+
+footer{
+    text-align: center;
+}
+
+@media (min-width: 900px){
+    main{
+        flex-direction: row;
+    }
+
+    .display{
+        width: 60%;
+    }
+
+    .display__TextoPrincipal{
+        font-size: 68px;
+    }
+
+    .display__TextoSecundario{
+        font-size: 80px;
+    }
+
+    .teclado{
+        width: 40%;
+    }
+}
