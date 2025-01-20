@@ -1,9 +1,9 @@
-//Fazer: Criar variável para número máximo sorteado
-let numeroSecreto = parseInt(Math.random() * 10 + 1);
-//let numeroSecreto = 2;
-console.log(numeroSecreto);
+let max = 100;
+//Sorteando número aleatório
+let numeroSecreto = parseInt(Math.random() * max + 1);
+
 let menor = 1;
-let maior = 10;
+let maior = max;
 
 let tentativas = 1;
 
@@ -13,6 +13,10 @@ let textoPrincipal = document.querySelector('.display__TextoPrincipal');
 let textoSecundario = document.querySelector('.display__TextoSecundario');
 let enviar = document.getElementById('enviar');
 let novoJogo = document.getElementById('novoJogo');
+let maxDom = document.getElementById('numeroMax');
+
+//Alterando o maior número aleatório no DOM
+maxDom.innerText = max;
 
 desabilitaBotao(novoJogo);
 
@@ -21,14 +25,14 @@ novoJogo.addEventListener('click', () =>{
     cadeiras = [];
     tentativas = 1;
     menor = 1;
-    maior = 10;
+    maior = max;
 
     textoPrincipal.innerHTML = "Acerte o Número";
-    textoSecundario.innerHTML = `${menor} < ? < ${maior}`;
+    imprimirTextoSecundario();
     textoInput.innerHTML = "";
     habilitaBotao(enviar);
     desabilitaBotao(novoJogo);
-})
+});
 
 enviar.addEventListener('click', () =>{
     let numeroChute = document.querySelector('.caixaTexto').textContent;
@@ -36,13 +40,12 @@ enviar.addEventListener('click', () =>{
     if (numeroChute > numeroSecreto){
         textoPrincipal.innerHTML = "Errou";
         maior = numeroChute;
-        //Fazer: Criar função para chamar textoSecundário
-        textoSecundario.innerHTML = `${menor} < ? < ${maior}`;
+        imprimirTextoSecundario();
     }else 
     if(numeroChute < numeroSecreto){
         textoPrincipal.innerHTML = "Errou";
         menor = numeroChute;
-        textoSecundario.innerHTML = `${menor} < ? < ${maior}`;
+        imprimirTextoSecundario();
     }else{
         textoPrincipal.innerHTML = "Acertou!!!";
         textoSecundario.innerHTML = `Na ${tentativas}ª Tentativa`;
@@ -62,11 +65,15 @@ function desabilitaBotao(botao){
     botao.style.pointerEvents = 'none';
     botao.style.backgroundColor = 'grey';
     botao.style.boxShadow = 'none';
-}
+};
 
 function habilitaBotao(botao){
     botao.setAttribute('disabled','false');
     botao.style.pointerEvents = 'auto';
     botao.style.backgroundColor = '#809D3C';
     botao.style.boxShadow = '1px 3px 8px #4e6617';
+};
+
+function imprimirTextoSecundario(){
+    textoSecundario.innerHTML = `${menor} < ? < ${maior}`;
 }
